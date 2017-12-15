@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CleanArea</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="no_photo">No photo added for this problem</string>
+
+    <string-array name="list_problems">
+        <item>Arbre à tailler</item>
+        <item>Arbre à abattre</item>
+        <item>Détritus</item>
+        <item>Haie à tailler</item>
+        <item>Mauvaise herbe</item>
+        <item>Autre</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+</resources>
