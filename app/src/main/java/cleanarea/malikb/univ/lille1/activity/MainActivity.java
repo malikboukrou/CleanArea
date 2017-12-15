@@ -1,7 +1,6 @@
-package app.androidhive.info.realm.activity;
+package cleanarea.malikb.univ.lille1.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -9,17 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
-import app.androidhive.info.realm.R;
-import app.androidhive.info.realm.adapters.ProblemAdapter;
-import app.androidhive.info.realm.adapters.RealmProblemsAdapter;
-import app.androidhive.info.realm.app.Prefs;
-import app.androidhive.info.realm.model.Problem;
-import app.androidhive.info.realm.realm.RealmController;
+import cleanarea.malikb.univ.lille1.R;
+import cleanarea.malikb.univ.lille1.adapters.ProblemAdapter;
+import cleanarea.malikb.univ.lille1.adapters.RealmProblemsAdapter;
+import cleanarea.malikb.univ.lille1.model.Problem;
+import cleanarea.malikb.univ.lille1.realm.RealmController;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -63,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Intent intent = new Intent().setClass(MainActivity.this, AddProblemActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 0);
             }
         });
     }
@@ -97,4 +92,11 @@ public class MainActivity extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == -1) {
+            Toast.makeText(this, "The problem have been added to your base", Toast.LENGTH_LONG).show();
+            adapter.notifyDataSetChanged();
+        }
+    }
 }

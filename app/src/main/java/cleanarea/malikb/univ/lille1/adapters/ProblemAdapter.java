@@ -1,32 +1,24 @@
-package app.androidhive.info.realm.adapters;
+package cleanarea.malikb.univ.lille1.adapters;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-
-import app.androidhive.info.realm.R;
-import app.androidhive.info.realm.activity.AddProblemActivity;
-import app.androidhive.info.realm.activity.DetailsActivity;
-import app.androidhive.info.realm.activity.MainActivity;
-import app.androidhive.info.realm.app.Prefs;
-import app.androidhive.info.realm.model.Problem;
-import app.androidhive.info.realm.realm.RealmController;
+import cleanarea.malikb.univ.lille1.R;
+import cleanarea.malikb.univ.lille1.activity.DetailsActivity;
+import cleanarea.malikb.univ.lille1.app.Prefs;
+import cleanarea.malikb.univ.lille1.model.Problem;
+import cleanarea.malikb.univ.lille1.realm.RealmController;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -66,10 +58,11 @@ public class ProblemAdapter extends RealmRecyclerViewAdapter<Problem> {
         byte[] byteArray = problem.getPhoto();
         final Bitmap bm_photo = BitmapFactory.decodeByteArray(byteArray , 0, byteArray.length);
         // load the background image
-        if (problem.getPhoto() != null) {
+        if (bm_photo != null) {
             holder.probPhoto.setImageBitmap(bm_photo);
+        } else {
+            holder.noPhoto.setVisibility(View.VISIBLE);
         }
-        else {}
         Log.i("Photo", ":::"+bm_photo);
 
 
@@ -128,7 +121,7 @@ public class ProblemAdapter extends RealmRecyclerViewAdapter<Problem> {
     private static class CardViewHolder extends RecyclerView.ViewHolder {
 
         private CardView card;
-        private TextView probType;
+        private TextView probType, noPhoto;
         private ImageView probPhoto;
 
         private CardViewHolder(View itemView) {
@@ -136,6 +129,7 @@ public class ProblemAdapter extends RealmRecyclerViewAdapter<Problem> {
             super(itemView);
             card = (CardView) itemView.findViewById(R.id.card_problem);
             probType = (TextView) itemView.findViewById(R.id.problem_type);
+            noPhoto = (TextView) itemView.findViewById(R.id.no_photo);
             probPhoto = (ImageView) itemView.findViewById(R.id.problem_photo);
         }
     }

@@ -1,4 +1,4 @@
-package app.androidhive.info.realm.activity;
+package cleanarea.malikb.univ.lille1.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,15 +12,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import app.androidhive.info.realm.R;
-import app.androidhive.info.realm.model.Problem;
-import app.androidhive.info.realm.realm.RealmController;
+import cleanarea.malikb.univ.lille1.R;
+import cleanarea.malikb.univ.lille1.model.Problem;
+import cleanarea.malikb.univ.lille1.realm.RealmController;
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    private TextView probType, probLong, probLat, probDesc;
+    private TextView probType, probLong, probLat, probDesc, noPhoto;
     private ImageView probPhoto;
     private ImageButton btnReturn, btnMap;
     private Realm realm;
@@ -48,6 +47,7 @@ public class DetailsActivity extends AppCompatActivity {
         probPhoto = (ImageView) findViewById(R.id.problem_details_photo);
         btnReturn = (ImageButton) findViewById(R.id.problem_details_btn_return);
         btnMap = (ImageButton) findViewById(R.id.problem_details_btn_pos);
+        noPhoto = (TextView) findViewById(R.id.no_photo);
 
         //Convert the byte image stored in realm to a bitmap image
         byte[] byteArray = problem.getPhoto();
@@ -57,15 +57,14 @@ public class DetailsActivity extends AppCompatActivity {
         probLong.setText(""+problem.getLongitude());
         probLat.setText(""+problem.getLatitude());
         probDesc.setText(problem.getDescription());
-        probPhoto.setImageBitmap(bm_photo);
-
 
         // load the background image
-        if (problem.getPhoto() != null) {
+        Log.e("photo", ":" + bm_photo);
+        if (bm_photo != null) {
             probPhoto.setImageBitmap(bm_photo);
+        } else {
+            noPhoto.setVisibility(View.VISIBLE);
         }
-        else {}
-        Log.i("Photo", ":::"+bm_photo);
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override

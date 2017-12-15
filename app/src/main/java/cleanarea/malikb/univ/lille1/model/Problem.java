@@ -1,7 +1,5 @@
-package app.androidhive.info.realm.model;
+package cleanarea.malikb.univ.lille1.model;
 
-
-import android.graphics.Bitmap;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

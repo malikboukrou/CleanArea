@@ -1,4 +1,4 @@
-package app.androidhive.info.realm.app;
+package cleanarea.malikb.univ.lille1.app;
 
 import android.app.Application;
 

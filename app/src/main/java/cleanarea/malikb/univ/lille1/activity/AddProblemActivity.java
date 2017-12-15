@@ -1,4 +1,4 @@
-package app.androidhive.info.realm.activity;
+package cleanarea.malikb.univ.lille1.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,18 +20,16 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
-import app.androidhive.info.realm.R;
-import app.androidhive.info.realm.model.Problem;
-import app.androidhive.info.realm.realm.RealmController;
+import cleanarea.malikb.univ.lille1.R;
+import cleanarea.malikb.univ.lille1.model.Problem;
+import cleanarea.malikb.univ.lille1.realm.RealmController;
 import io.realm.Realm;
 
 public class AddProblemActivity extends AppCompatActivity {
 
-    private Realm realm;
-
     // GPSTracker class
     GPSTracker gps;
-
+    private Realm realm;
     //Items needed for location
     private LocationManager lManager;
     private Location location;
@@ -116,6 +114,7 @@ public class AddProblemActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+
         // check if GPS enabled
         if(gps.canGetLocation()){
 
@@ -154,7 +153,11 @@ public class AddProblemActivity extends AppCompatActivity {
             realm.beginTransaction();
             realm.copyToRealm(problem);
             realm.commitTransaction();
-            finishActivity(0);
+
+            Intent data = new Intent();
+            data.setData(Uri.parse("problem added"));
+            setResult(RESULT_OK);
+            finish();
         }
     }
 
@@ -166,7 +169,6 @@ public class AddProblemActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK){
                     bitmap_photo = (Bitmap) imageReturnedIntent.getExtras().get("data");
                 }
-
                 break;
             case 1:
                 if(resultCode == RESULT_OK){

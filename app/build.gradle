@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "app.androidhive.info.realm"
+        applicationId "cleanarea.malikb.univ.lille1"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1

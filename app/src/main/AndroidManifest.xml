@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.androidhive.info.realm">
+    package="cleanarea.malikb.univ.lille1">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".app.MyApplication"
+        android:name="cleanarea.malikb.univ.lille1.app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="cleanarea.malikb.univ.lille1.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".activity.GPSTracker" />
+        <service android:name="cleanarea.malikb.univ.lille1.activity.GPSTracker" />
 
-        <activity android:name=".activity.AddProblemActivity" />
+        <activity android:name="cleanarea.malikb.univ.lille1.activity.AddProblemActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,7 +36,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".activity.DetailsActivity"></activity>
+        <activity android:name="cleanarea.malikb.univ.lille1.activity.DetailsActivity"></activity>
     </application>
 
 </manifest>

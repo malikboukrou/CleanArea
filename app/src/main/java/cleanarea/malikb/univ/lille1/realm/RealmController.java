@@ -1,11 +1,11 @@
-package app.androidhive.info.realm.realm;
+package cleanarea.malikb.univ.lille1.realm;
 
 
 import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
-import app.androidhive.info.realm.model.Problem;
+import cleanarea.malikb.univ.lille1.model.Problem;
 import io.realm.Realm;
 import io.realm.RealmResults;
 

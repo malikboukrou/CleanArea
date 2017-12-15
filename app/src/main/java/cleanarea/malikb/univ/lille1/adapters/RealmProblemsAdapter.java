@@ -1,8 +1,8 @@
-package app.androidhive.info.realm.adapters;
+package cleanarea.malikb.univ.lille1.adapters;
 
 import android.content.Context;
 
-import app.androidhive.info.realm.model.Problem;
+import cleanarea.malikb.univ.lille1.model.Problem;
 import io.realm.RealmResults;
 
 public class RealmProblemsAdapter extends RealmModelAdapter<Problem> {

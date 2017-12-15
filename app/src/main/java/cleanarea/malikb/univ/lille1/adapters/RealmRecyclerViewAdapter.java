@@ -1,4 +1,4 @@
-package app.androidhive.info.realm.adapters;
+package cleanarea.malikb.univ.lille1.adapters;
 
 import android.support.v7.widget.RecyclerView;
 

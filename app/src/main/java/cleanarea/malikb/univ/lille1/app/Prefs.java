@@ -1,4 +1,4 @@
-package app.androidhive.info.realm.app;
+package cleanarea.malikb.univ.lille1.app;
 
 
 import android.annotation.TargetApi;
@@ -24,16 +24,16 @@ public class Prefs {
         return instance;
     }
 
+    public boolean getPreLoad() {
+        return sharedPreferences.getBoolean(PRE_LOAD, false);
+    }
+
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public void setPreLoad(boolean totalTime) {
         sharedPreferences
                 .edit()
                 .putBoolean(PRE_LOAD, totalTime)
                 .apply();
-    }
-
-    public boolean getPreLoad(){
-        return sharedPreferences.getBoolean(PRE_LOAD, false);
     }
 
 }
